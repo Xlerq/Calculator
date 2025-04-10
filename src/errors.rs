@@ -2,6 +2,7 @@
 pub enum CalculatorError {
     InvalidNumber(String),
     WrongFormat(String),
+    DivisionByZero,
 }
 
 impl std::fmt::Display for CalculatorError {
@@ -9,6 +10,7 @@ impl std::fmt::Display for CalculatorError {
         match self {
             CalculatorError::InvalidNumber(s) => write!(f, "Zła liczba, kurwa: {}", s),
             CalculatorError::WrongFormat(s) => write!(f, "Zły format, kurwa: {}", s),
+            CalculatorError::DivisionByZero => write!(f, "Dzielenie przez zero, kurwa!"),
         }
     }
 }
